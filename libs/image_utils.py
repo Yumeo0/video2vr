@@ -80,7 +80,7 @@ def render_new_perspective(shift, depth_map, frame):
         frame,
         map_x.astype(np.float32),
         map_y.astype(np.float32),
-        interpolation=cv2.INTER_NEAREST,
+        interpolation=cv2.INTER_LINEAR,
     )
 
     return new_image

@@ -1,3 +1,5 @@
 settings.json
 
-__pycache__
+__pycache__/
+depth_maps/
+output/

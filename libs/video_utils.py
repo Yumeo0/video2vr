@@ -179,7 +179,7 @@ def depth_to_3d(depth_map):
     return x, y, z
 
 
-def optimize_vr_video(input_filepath: str, output_filepath: str):
+def optimize_vr_video(video_input_path: str, input_filepath: str, output_filepath: str):
     """Optimizes a VR video using FFmpeg.
 
     Args:
@@ -190,6 +190,8 @@ def optimize_vr_video(input_filepath: str, output_filepath: str):
         "ffmpeg",
         "-i",
         input_filepath,
+        "-i",
+        video_input_path,
         "-c:v",
         "libx265",
         "-preset",
@@ -198,9 +200,11 @@ def optimize_vr_video(input_filepath: str, output_filepath: str):
         "22",
         #'-vf', 'scale=1920x540', # Scale down resolution
         "-c:a",
-        "aac",  # You could also copy the original audio with '-c:a', 'copy'
-        "-b:a",
-        "128k",  # Audio bitrate
+        "copy",  # Copy the original audio from video_input_path without re-encoding
+        "-map",
+        "0:v:0",  # Take the video from the first input file
+        "-map",
+        "1:a:0",  # Take the audio from the second input file
         "-y",  # Override existing file
         output_filepath,
     ]
@@ -233,8 +237,9 @@ def generate_vr_video(
     frame_height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
     # Video writer for the output VR video
-    temp_filename = "temp_VR_SBS_" + get_file_name(video_input_path)
-    filename = "VR_SBS_" + get_file_name(video_input_path)
+    os.makedirs("output", exist_ok=True)
+    temp_filename = "output/temp_VR_SBS_" + get_file_name(video_input_path)
+    filename = "output/VR_SBS_" + get_file_name(video_input_path)
     out = cv2.VideoWriter(
         temp_filename,
         cv2.VideoWriter_fourcc(*"mp4v"),
@@ -285,7 +290,7 @@ def generate_vr_video(
     video.release()
     out.release()
 
-    if optimize_vr_video(temp_filename, filename):
+    if optimize_vr_video(video_input_path, temp_filename, filename):
         # Delete temporary files
         try:
             os.remove(temp_filename)

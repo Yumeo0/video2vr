@@ -156,12 +156,8 @@ class SettingsDialog(QDialog):
         batch_size_layout = QHBoxLayout()
         self.batch_size_label = QLabel("Batch Size:")
         self.batch_size_input = QSpinBox()
-        self.batch_size_input.setMinimum(
-            1
-        )  # Set a reasonable minimum value if necessary
-        self.batch_size_input.setMaximum(
-            10000
-        )  # Set a reasonable maximum value if necessary
+        self.batch_size_input.setMinimum(1)
+        self.batch_size_input.setMaximum(10000)
         self.batch_size_input.setValue(settings_manager.settings.batch_size)
         batch_size_layout.addWidget(self.batch_size_label)
         batch_size_layout.addWidget(self.batch_size_input)
@@ -186,12 +182,8 @@ class SettingsDialog(QDialog):
         depth_offset_layout = QHBoxLayout()
         self.depth_offset_label = QLabel("Depth Offset:")
         self.depth_offset_input = QSpinBox()
-        self.depth_offset_input.setMinimum(
-            0
-        )  # Set a reasonable minimum value if necessary
-        self.depth_offset_input.setMaximum(
-            1000
-        )  # Set a reasonable maximum value if necessary
+        self.depth_offset_input.setMinimum(0)
+        self.depth_offset_input.setMaximum(1000)
         self.depth_offset_input.setValue(settings_manager.settings.depth_offset)
         depth_offset_layout.addWidget(self.depth_offset_label)
         depth_offset_layout.addWidget(self.depth_offset_input)

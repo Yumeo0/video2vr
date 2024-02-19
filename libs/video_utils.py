@@ -204,7 +204,7 @@ def optimize_vr_video(video_input_path: str, input_filepath: str, output_filepat
         "-map",
         "0:v:0",  # Take the video from the first input file
         "-map",
-        "1:a:0",  # Take the audio from the second input file
+        "1:a:0?",  # Take the audio from the second input file
         "-y",  # Override existing file
         output_filepath,
     ]

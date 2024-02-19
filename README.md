@@ -7,7 +7,7 @@ Easily convert videos into side-by-side VR videos.
 ## How does it work?
 
 The program estimates depth maps for each frame using AI. \
-Using these depth maps it shifts the pixelsfor the left and right eye independendly.\
+Using these depth maps it shifts the pixels for the left and right eye independendly.\
 Then we place those 2 frames side-by-side and get a VR-video.
 
 ## How to start the program?

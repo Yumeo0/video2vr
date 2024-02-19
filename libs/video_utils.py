@@ -200,7 +200,7 @@ def optimize_vr_video(video_input_path: str, input_filepath: str, output_filepat
         "22",
         #'-vf', 'scale=1920x540', # Scale down resolution
         "-c:a",
-        "copy",  # Copy the original audio from video_input_path without re-encoding
+        "aac",
         "-map",
         "0:v:0",  # Take the video from the first input file
         "-map",

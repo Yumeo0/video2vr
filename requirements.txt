@@ -1,0 +1,9 @@
+numpy == 1.26.4
+opencv-python == 4.9.0.80
+PyQt6 == 6.6.1
+transformers @ git+https://github.com/huggingface/transformers
+
+# If you need cuda support install pytorch from here https://pytorch.org/get-started/locally/#start-locally
+torch
+torchvision
+torchaudio

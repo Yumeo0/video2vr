@@ -1,3 +1,8 @@
+'''
+    video2vr - Copyright (C) 2024  xXChampionsXx
+    Full disclaimer in /video2vr.py
+'''
+
 import json
 import os
 from typing import NamedTuple

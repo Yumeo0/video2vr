@@ -16,7 +16,7 @@ Then we place those 2 frames side-by-side and get a VR-video.
 git clone https://github.com/xXChampionsXx/video2vr
 cd video2vr
 pip3 install -r requirements.txt
-python video_to_vr.py
+python video2vr.py
 ```
 
 ## GPU support / CUDA support
